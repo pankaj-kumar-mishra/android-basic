@@ -32,11 +32,25 @@ class MainActivity : AppCompatActivity() {
 //        displayText.text = "Welcome Back Pankaj"
 //    }
 //  (Kotlin way)
-    update.setOnClickListener{
-        show.text = "Good Bye Pankaj (PKM)"
+//    update.setOnClickListener{
+//        show.text = "Good Bye Pankaj (PKM)"
+//    }
+//    reset.setOnClickListener{
+//        show.text = "Welcome Back Pankaj (PKM)"
+//    }
+
+//   Counter App
+    var count = 0;
+
+    btnPlus.setOnClickListener{
+        count++;
+        txtCount.text = count.toString();
     }
-    reset.setOnClickListener{
-        show.text = "Welcome Back Pankaj (PKM)"
+    btnMinus.setOnClickListener{
+        if (count>0) {
+            count--;
+            txtCount.text = count.toString()
+        }
     }
     }
 }
