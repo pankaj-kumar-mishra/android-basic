@@ -1,8 +1,5 @@
 package com.example.basicapp
 
-import androidx.core.util.rangeTo
-import kotlin.random.Random
-
 // Only Basics
 fun main(args: Array<String>) {
 //    varVsVal()
@@ -18,6 +15,15 @@ fun main(args: Array<String>) {
 //    inputValue()
 //    flowControl()
 //    simpleProjects()
+//    functionsDiff()
+
+//    OOPs concepts
+//    songFunction()
+//    inheritanceFunction()
+//    polymorphismFunction()
+//    abstractionFunction()
+//    encapsulationFunction()
+    constructorFunction()
 }
 
 const val pie = 3.14// const val (we can use it as global constant)
@@ -361,23 +367,23 @@ fun simpleProjects() {
     println("Enter 4 for Cancel/Exit ATM Machine")
     var currentBalace = 10000
     print("Please choose an option: ")
-    val input = readLine()?:""
+    val input = readLine() ?: ""
     val choice = input.toInt()
-    when(choice){
+    when (choice) {
         1 -> {
             println("Your account balance is $currentBalace.")
         }
         2 -> {
             print("Enter amount for deposit.")
-            val amt = readLine()?:""
-            currentBalace+=amt.toInt()
+            val amt = readLine() ?: ""
+            currentBalace += amt.toInt()
             println("Your current account balance is $currentBalace.")
         }
         3 -> {
             print("Enter amount for withdraw.")
-            val amt = readLine()?:""
-            if (currentBalace>=amt.toInt()){
-                currentBalace-=amt.toInt()
+            val amt = readLine() ?: ""
+            if (currentBalace >= amt.toInt()) {
+                currentBalace -= amt.toInt()
             } else {
                 println("You don't have sufficient balance.")
             }
@@ -388,3 +394,219 @@ fun simpleProjects() {
         }
     }
 }
+
+fun functionsDiff() {
+    println(sum(10, 15))//arguments
+    println(sum(b = 5, a = 10))//named arguments function
+//    "show" same named function will call according to arguments we pass and it's types
+    show("Pankaj")//call show string parameter one
+    show(100)//call show integer parameter one
+    show(80, 70)//call show integer parameter two
+}
+
+fun sum(a: Int, b: Int): Int {//parameters
+    return a + b
+}
+
+//Function Overloading
+fun show(p1: String) {
+    println("show string: $p1")
+}
+
+fun show(p1: Int) {
+    println("show Int: $p1")
+}
+
+fun show(p1: Int, p2: Int) {
+    println("show p1 Int: $p1 and p2 Int: $p2")
+}
+
+// OOPs Concepts
+fun songFunction() {
+    /*val song1 = Song()
+    song1.name = "Song One"
+    song1.singer = "Singer One"
+    song1.duration = 5.30
+    song1.onTSeries = false
+    println(song1.name)
+    song1.play()
+    song1.stop()*/
+    val song1 = Song("Song One",5.30,"Singer One",false)
+    song1.play("Pankaj")
+}
+class Song(name: String, duration: Double, singer: String, onTSeries: Boolean) {
+//    var name:String? = null
+//    var duration:Double? = null
+//    var singer:String? = null
+//    var onTSeries:Boolean? = null
+
+    fun play(name:String) {
+        println("$name Song is playing...")
+    }
+    fun stop() {
+        println("Song is stopped.")
+    }
+    fun pause() {
+        println("Song is paused.")
+    }
+}
+
+/* Main OOPs Concepts
+* Inheritance
+* Polymorphism
+* Abstraction
+* Encapsulation
+* */
+// 1 => Inheritance
+fun inheritanceFunction(){
+//    val pankaj = Pankaj()
+//    pankaj.name
+}
+
+/*open class Person() {// to inherit parent class you need to "open" the class
+    var name:String? = null
+    var height:String? = null
+    var fatherName:String? = null
+    var surName:String? = null
+}
+//class Pankaj() {
+class Pankaj(): Person() {
+    var canDance:Boolean? = null
+}
+class PKM(): Person() {
+    var canSing:Boolean? = null
+}*/
+
+// 2 => Polymorphism
+fun polymorphismFunction() {
+//    val add = Add(10, 5)
+//    println(add.calculate())
+//    val multi = Multi(10, 5)
+//    println(multi.calculate())
+}
+
+/*open class ParentCalculations() {
+    open fun calculate():Int {
+        println("Parent Calculate")
+        return  0
+    }
+}
+class Add(val a:Int,val b:Int): ParentCalculations() {
+    override fun calculate():Int {
+        return a + b
+    }
+}
+class Multi(val a:Int, val b:Int): ParentCalculations() {
+    override fun calculate():Int {
+        return a * b
+    }
+}*/
+
+// 3 Abstraction
+fun abstractionFunction() {
+//    we can't make instance of abstract class
+//    val sum = Add2(10)
+//    sum.print()
+//    println(sum.calculation())
+//    val multi = Multi2(10)
+//    multi.print()
+//    println(multi.calculation())
+}
+
+abstract class AbsParent() {
+    abstract fun print()
+    abstract fun calculation():Int
+}
+/*class Add2(val a: Int):AbsParent() {
+    override fun print() {
+        println("Add2 Printing $a")
+    }
+    override fun calculation(): Int {
+        return a + a
+    }
+}
+class Multi2(val a: Int):AbsParent() {
+    override fun print() {
+        println("Multi2 Printing $a")
+    }
+    override fun calculation(): Int {
+        return a * a
+    }
+}*/
+
+// 4 => Encapsulation
+fun encapsulationFunction() {
+//    val pankaj = Pankaj()
+//    pankaj.doWork()
+}
+
+/*open class Person() {
+    val name:String = "Welcome"
+//    private val name:String = "Welcome"// we can't use this variable (Pankaj or PKM) class
+//    protected val name:String = "Welcome"// we need to use "super.name"
+    fun work() {
+        println("Playing Cricket")
+    }
+}
+class Pankaj(): Person() {
+    fun doWork() {
+        println("Parent Name: $name")
+        work()
+    }
+}*/
+
+// Constructor Class
+fun constructorFunction() {
+    /*val test = PrimaryConstructor("Pankaj",25)
+    val test2 = SecondaryConstructor("Pankaj", 25)
+    println(test2.sum(10,5))
+    val test3 = ThisTest()
+    println("Before name: "+test3.name)
+    test3.updateName("Pankaj")
+    println("After name: "+test3.name)
+    val test4 = GetSetTest()
+    println("Before set "+ test4.name)
+    test4.name = "Pankaj Mishra"
+    println("After set "+ test4.name)*/
+}
+
+/*class PrimaryConstructor(name: String, age: Int) {
+    init {
+        println("Primary: I am $name and my age is $age.")
+    }
+}
+class SecondaryConstructor(name: String, age: Int) {
+    init {
+        println("Secondary: I am $name and my age is $age.")
+    }
+
+    fun sum(val1:Int, val2:Int):Int {
+        return val1 + val2
+    }
+}
+class ThisTest() {
+    var name:String = "No Name"
+    fun updateName(newName:String) {
+        this.name = newName
+    }
+
+//    companion object
+//    this can accessible in separate class by using import "className.companion.API_KEY"
+    companion object {
+        val API_KEY:String = "pankajApiKey=123hello==welcome"
+    }
+}
+
+// Getter Setter Class
+class GetSetTest() {
+    var name: String = "Default Name"
+    get() = field
+    set(value:String) {
+        if (value?.length>4) {
+            field = value
+        } else {
+            println("Please enter minimum 4 characters.")
+        }
+    }
+}*/
+
