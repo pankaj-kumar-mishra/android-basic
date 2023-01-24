@@ -23,7 +23,19 @@ fun main(args: Array<String>) {
 //    polymorphismFunction()
 //    abstractionFunction()
 //    encapsulationFunction()
-    constructorFunction()
+//    constructorFunction()
+
+//    Interface Concepts
+//    interfaceFunction()
+
+//    Standard Function
+//    scopeFunction()
+
+//    Other types of class
+//    otherClassFunction()
+//    otherConceptsFunction()
+
+//    Small Projects
 }
 
 const val pie = 3.14// const val (we can use it as global constant)
@@ -396,12 +408,12 @@ fun simpleProjects() {
 }
 
 fun functionsDiff() {
-    println(sum(10, 15))//arguments
+    /*println(sum(10, 15))//arguments
     println(sum(b = 5, a = 10))//named arguments function
 //    "show" same named function will call according to arguments we pass and it's types
     show("Pankaj")//call show string parameter one
     show(100)//call show integer parameter one
-    show(80, 70)//call show integer parameter two
+    show(80, 70)//call show integer parameter two*/
 }
 
 fun sum(a: Int, b: Int): Int {//parameters
@@ -555,7 +567,7 @@ class Pankaj(): Person() {
     }
 }*/
 
-// Constructor Class
+// ==> Constructor Class
 fun constructorFunction() {
     /*val test = PrimaryConstructor("Pankaj",25)
     val test2 = SecondaryConstructor("Pankaj", 25)
@@ -610,3 +622,174 @@ class GetSetTest() {
     }
 }*/
 
+// ==> INTERFACE
+fun interfaceFunction() {
+    /*val stud1 = Pankaj()
+    stud1.readBook("Rich Dad Poor Dad")
+    stud1.reading()
+    stud1.writing()*/
+}
+
+/*interface Student {
+    val name:String
+    fun reading()
+    fun writing()
+    fun readBook(name:String) {
+        println("Student is Reading $name Book.")
+    }
+}
+class Pankaj: Student{
+    override val name: String = "Mobile Development"
+
+    override fun reading() {
+        println("Pankaj is Reading.")
+    }
+
+    override fun writing() {
+        println("Pankaj is Writing.")
+    }
+}*/
+
+// Standard Functions (Scope Function) => (let, run, with, apply, also)
+fun scopeFunction() {
+    val name:String = "Pankaj"
+    val lists = listOf<String>("A","B","C")
+    val test = ScopeTest()
+//    let
+    println("varName.let")
+    name.let {
+        println(it.length)
+        println(it.uppercase())
+    }
+    lists.let { it2->// by default "it" we can use custom one "newName->" (-> lambda function)
+        println(it2.size)
+        println(it2.get(1))
+    }
+    test.let {
+        it.first()
+        it.second()
+    }
+//    with => in "with" we can return but in "let" we can't
+    println("=======================with(varName)")
+//    by default "this", we can't change it
+    with(name) {
+        println(this.length)
+        println(this.uppercase())
+        "string type"
+    }
+    with(lists) {
+        println(this.size)
+        println(this.get(1))
+        "list type"
+    }
+    with(test) {
+        this.first()
+        this.second()
+    }
+//    also => we can use with "let" or "with"
+    println("=======================with(varName){}.also{}")
+    with(lists) {
+        for (i in this) {
+            println("for: $i")
+        }
+    }.also {
+        println("List printed successfully")
+    }
+//    apply => same as with
+    println("=======================varName.apply {}")
+    lists.apply {
+        println("apply: $this")
+    }
+    //    run => same as with
+    println("=======================varName.apply {}")
+    lists.run {
+        println("run: $this")
+    }
+}
+
+class ScopeTest() {
+    fun first() {
+        println("first called")
+    }
+    fun second() {
+        println("second called")
+    }
+}
+
+// ==> Other Types of Class (Data, Enum, Sealed, Nested Inner)
+fun otherClassFunction() {
+/*//    1 => data class
+    var lists = arrayListOf<Developer>()
+    lists.add(Developer("Pankaj","Mishra",25,"RN Developer"))
+    lists.add(Developer("PKM","Mishra",26,"Android Developer"))
+    for (item in lists) {
+        println(item)
+    }
+//    2 => enum class
+    val myGender:Gender = Gender.MALE
+//    3 => sealed class (multiple classes types assigned to a one type "TypesOfVehicle")
+    val bmw:TypesOfVehicle = Car("BMW")
+    val hero:TypesOfVehicle = Bike("Hero", 50000.00)
+//    4 => Nested or Inner class (Parent.Child() or Parent().Child())
+    val animal = Animal()
+    animal.test
+//    nested class
+    val dog = Animal.Dog()
+    dog.work()
+//    inner class
+    val fish = Animal().Fish()
+    fish.work()*/
+}
+
+/*data class Developer (
+    var firstName:String = "",
+    var lastName:String = "",
+    var age:Int = 0,
+    var profession:String = ""
+)
+enum class Gender {
+    MALE,FEMALE,OTHER
+}
+sealed class TypesOfVehicle
+class Car(val name:String): TypesOfVehicle() {
+    val test:String = "Outer test variable"
+}
+class Bike(val name:String, val price:Double): TypesOfVehicle()
+class Animal() {
+    val test:String = "Outer test variable"
+    class Dog() {
+        fun work() {
+            println("Dog is barking.")
+        }
+    }
+    inner class Fish() {
+        fun work() {
+            println("Fish is swimming.")
+        }
+    }
+}*/
+
+fun otherConceptsFunction() {
+/*//    1 => late_init var
+    val name = Names()
+    name.Pankaj()
+    name.Mishra()
+//    2 => type_checking
+    println("" is String)
+    println(name is Names)
+//    3 => smart_casting (auto detect types)
+    val arrStr = arrayOf("P","K")//Array<String>
+    val arrInt = arrayOf(10,20)//Array<Int>*/
+}
+
+/*class Names() {
+    lateinit var name:String
+    fun Pankaj() {
+        name = "Pankaj"
+        println("Hello $name")
+    }
+    fun Mishra() {
+        name = "Mishra"
+        println("Hello $name")
+    }
+}*/
