@@ -36,6 +36,10 @@ fun main(args: Array<String>) {
 //    otherConceptsFunction()
 
 //    Small Projects
+//    quizApp()
+//    shopBillApp()
+//    salarySheetApp()
+//    studentResultApp()
 }
 
 const val pie = 3.14// const val (we can use it as global constant)
@@ -443,21 +447,24 @@ fun songFunction() {
     println(song1.name)
     song1.play()
     song1.stop()*/
-    val song1 = Song("Song One",5.30,"Singer One",false)
+    val song1 = Song("Song One", 5.30, "Singer One", false)
     song1.play("Pankaj")
 }
+
 class Song(name: String, duration: Double, singer: String, onTSeries: Boolean) {
 //    var name:String? = null
 //    var duration:Double? = null
 //    var singer:String? = null
 //    var onTSeries:Boolean? = null
 
-    fun play(name:String) {
+    fun play(name: String) {
         println("$name Song is playing...")
     }
+
     fun stop() {
         println("Song is stopped.")
     }
+
     fun pause() {
         println("Song is paused.")
     }
@@ -470,7 +477,7 @@ class Song(name: String, duration: Double, singer: String, onTSeries: Boolean) {
 * Encapsulation
 * */
 // 1 => Inheritance
-fun inheritanceFunction(){
+fun inheritanceFunction() {
 //    val pankaj = Pankaj()
 //    pankaj.name
 }
@@ -527,7 +534,7 @@ fun abstractionFunction() {
 
 abstract class AbsParent() {
     abstract fun print()
-    abstract fun calculation():Int
+    abstract fun calculation(): Int
 }
 /*class Add2(val a: Int):AbsParent() {
     override fun print() {
@@ -652,8 +659,8 @@ class Pankaj: Student{
 
 // Standard Functions (Scope Function) => (let, run, with, apply, also)
 fun scopeFunction() {
-    val name:String = "Pankaj"
-    val lists = listOf<String>("A","B","C")
+    val name: String = "Pankaj"
+    val lists = listOf<String>("A", "B", "C")
     val test = ScopeTest()
 //    let
     println("varName.let")
@@ -661,7 +668,7 @@ fun scopeFunction() {
         println(it.length)
         println(it.uppercase())
     }
-    lists.let { it2->// by default "it" we can use custom one "newName->" (-> lambda function)
+    lists.let { it2 ->// by default "it" we can use custom one "newName->" (-> lambda function)
         println(it2.size)
         println(it2.get(1))
     }
@@ -711,6 +718,7 @@ class ScopeTest() {
     fun first() {
         println("first called")
     }
+
     fun second() {
         println("second called")
     }
@@ -793,3 +801,168 @@ fun otherConceptsFunction() {
         println("Hello $name")
     }
 }*/
+
+// ==========================Small Projects
+// 1 =====> Quiz APP
+fun quizApp() {
+    println("Welcome to Quiz App")
+    var quizs = arrayListOf<Question>()
+    quizs.add(
+        Question(
+            "Question 1",
+            "Option 1",
+            "Option 2",
+            "Option 3",
+            "Option 4",
+            "Option 3"
+        )
+    )
+    quizs.add(
+        Question(
+            "Question 2",
+            "Option 1",
+            "Option 2",
+            "Option 3",
+            "Option 4",
+            "Option 1"
+        )
+    )
+    quizs.add(
+        Question(
+            "Question 3",
+            "Option 1",
+            "Option 2",
+            "Option 3",
+            "Option 4",
+            "Option 2"
+        )
+    )
+
+    print("Press 1 to start or Press 2 to exit. ")
+    var rightAns = 0
+    var wrongAns = 0
+    val a = readLine() ?: ""
+
+    when (a.toInt()) {
+        1 -> {
+            for (item in quizs) {
+                println("Question : ${item.question}")
+                println("OptionA: ${item.option1}")
+                println("OptionB: ${item.option2}")
+                println("OptionC: ${item.option3}")
+                println("OptionD: ${item.option4}")
+                println("--------------Please enter your answer--------------------")
+                val ans = readLine() ?: ""
+//                if (ans === item.answer) {
+//                if (ans.lowercase().equals(item.answer.lowercase())) {
+                if (ans.lowercase().equals(item.answer.lowercase())) {
+                    rightAns++
+                    println("Correct Answer")
+                } else {
+                    wrongAns++
+                    println("InCorrect Answer")
+                }
+            }
+
+            println("You gave $rightAns Correct Answers")
+            println("You gave $wrongAns Wrong Answers")
+            println("Thank You, Welcome Back")
+        }
+        2 -> {
+            println("Good bye")
+        }
+        else -> {
+            println("Good bye")
+        }
+    }
+}
+
+data class Question(
+    val question: String = "",
+    val option1: String = "",
+    val option2: String = "",
+    val option3: String = "",
+    val option4: String = "",
+    val answer: String = ""
+)
+
+// 2 =====> Shop Bill App
+fun shopBillApp() {
+    println("Welcome to Toy Shop")
+    var products = arrayListOf<ShopProduct>()
+    products.add(ShopProduct("Bat", 500.00))
+    products.add(ShopProduct("Ball", 50.00))
+    products.add(ShopProduct("Stump", 200.00))
+    println("Available Products: ")
+    for (item in products) {
+        println("${item.name} price is ${item.price}")
+    }
+    println("What you want to purchase? ")
+    val prod = readLine() ?: ""
+    println("How many $prod you want to buy? ")
+    val qty = readLine() ?: "1"
+    val prodIdx = products.indexOfFirst {
+        it.name.lowercase() == prod.lowercase()
+    }
+    println("$prod ====== $prodIdx ==> $qty")
+    if (prodIdx != -1) {
+        try {
+            val price = products[prodIdx].price
+            val totalPrice = price * qty.toInt()
+            println("Your billing price is $totalPrice")
+        } catch (err: Exception) {
+            println(err)
+        }
+    } else {
+        println("Sorry, $prod is not available.")
+    }
+}
+
+data class ShopProduct(
+    val name: String = "",
+    val price: Double = 0.00
+)
+
+// 3 =====> Salary Sheet App
+fun salarySheetApp() {
+    print("Enter your salary? ")
+    val sal = (readLine() ?: "").toInt()
+    val da = sal * .10
+    val ma = 300
+    val hra = sal * .075
+    val pf = sal * .125
+    val grossSal = sal + da + ma + hra
+    val netSal = grossSal - pf
+    println("DA: $da, MA: $ma, HRA: $hra, PF: $pf, Gross Salary: $grossSal")
+    println("Your salary is $sal and your net salary is $netSal.")
+}
+
+// 4 =====> Student Result App
+fun studentResultApp() {
+    val students = arrayListOf<StudentResult>()
+
+    for (item in 1..3) {
+        print("Enter your name? ")
+        val name = readLine() ?: ""
+        print("Enter your mark (Subject One): ")
+        val s1 = (readLine() ?: "").toInt()
+        print("Enter your mark (Subject Two): ")
+        val s2 = (readLine() ?: "").toInt()
+        print("Enter your mark (Subject Three): ")
+        val s3 = (readLine() ?: "").toInt()
+        val total = s1 + s2 + s3
+        val percentage = (total / 3).toDouble()
+
+        students.add(StudentResult(name, s1, s2, s3, total, percentage ))
+    }
+    println("Students: $students")
+}
+
+data class StudentResult(
+    val name: String = "",
+    val s1: Int = 0,
+    val s2: Int = 0,
+    val s3: Int = 0,
+    val total: Int = 0,
+    val percentage: Double = 0.0
+)
