@@ -11,6 +11,7 @@ class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
+        setTitle("First App")
 
 //  (JAVA way)
 //    val displayText = findViewById(R.id.display) as TextView
