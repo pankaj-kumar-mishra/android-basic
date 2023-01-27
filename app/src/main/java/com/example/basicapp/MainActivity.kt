@@ -26,5 +26,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, CounterActivity::class.java);
         startActivity(intent)
     }
+    btnNavToAgeCalculator.setOnClickListener{
+        val intent = Intent(this, AgeCalculatorActivity::class.java);
+        startActivity(intent)
+    }
     }
 }
