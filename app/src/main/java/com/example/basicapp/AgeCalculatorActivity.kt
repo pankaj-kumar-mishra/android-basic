@@ -13,7 +13,7 @@ class AgeCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_age_calculator)
 
-        setTitle("Age Calculator App")
+        title = "Age Calculator App"
         Toast.makeText(this, "WELCOME TO AGE CALCULATOR", Toast.LENGTH_SHORT).show()
 
         btnDOB.setOnClickListener { view ->

@@ -30,5 +30,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, AgeCalculatorActivity::class.java);
         startActivity(intent)
     }
+    btnNavToCalculator.setOnClickListener{
+        val intent = Intent(this, CalculatorActivity::class.java)
+        startActivity(intent)
+    }
     }
 }
