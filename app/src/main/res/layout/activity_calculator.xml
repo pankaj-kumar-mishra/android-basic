@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/cal_txtOutput"
         android:textSize="70sp"
-        android:text="100"
+        android:text=""
         android:gravity="right"
         android:textColor="@color/black"
         android:paddingRight="10dp"
@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/cal_txtInput"
         android:textSize="60sp"
-        android:text="100"
+        android:text=""
         android:gravity="right"
         android:paddingRight="10dp"
         android:textColor="@color/black"
@@ -41,6 +41,7 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/cal_ac"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -51,6 +52,7 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/cal_lb"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -61,6 +63,7 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/cal_rb"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -71,6 +74,7 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/cal_div"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -89,6 +93,7 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/cal_7"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -99,6 +104,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_8"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -109,6 +115,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_9"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -119,6 +126,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_mul"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="5dp"
@@ -137,6 +145,7 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/cal_4"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -147,6 +156,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -157,6 +167,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_6"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -167,6 +178,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_sub"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="5dp"
@@ -185,6 +197,7 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/cal_1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -195,6 +208,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -205,6 +219,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="10dp"
@@ -215,6 +230,7 @@
                 android:textSize="35sp" />
 
             <TextView
+                android:id="@+id/cal_add"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="5dp"
@@ -244,6 +260,7 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/cal_0"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="15dp"
@@ -254,6 +271,7 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/cal_dot"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="-10dp"
@@ -264,6 +282,7 @@
                 android:textSize="40sp" />
 
             <TextView
+                android:id="@+id/cal_equal"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:paddingTop="1dp"
